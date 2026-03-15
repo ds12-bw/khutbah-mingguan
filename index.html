@@ -10,25 +10,26 @@
     <style>
         :root {
             --primary-green: #1b4332;
+            --dark-green: #081c15;
             --accent-gold: #d4af37;
             --light-bg: #f4f7f6;
-            --text-dark: #2d3436;
+            --white: #ffffff;
         }
 
         body {
             font-family: 'Sarabun', sans-serif;
             background-color: var(--light-bg);
-            color: var(--text-dark);
+            color: #333;
             margin: 0; padding: 0;
         }
 
-        /* Header */
+        /* Header & Hero Area */
         header {
-            background: linear-gradient(rgba(27, 67, 50, 0.95), rgba(27, 67, 50, 0.95)), 
+            background: linear-gradient(rgba(8, 28, 21, 0.9), rgba(8, 28, 21, 0.9)), 
                         url('https://www.transparenttextures.com/patterns/islamic-art.png');
-            background-color: var(--primary-green);
+            background-color: var(--dark-green);
             color: white;
-            padding: 60px 20px;
+            padding: 80px 20px;
             text-align: center;
             border-bottom: 6px solid var(--accent-gold);
         }
@@ -40,49 +41,89 @@
             color: var(--accent-gold);
         }
 
-        /* คำอธิบายเว็บ (About Section) */
-        .about-site {
-            max-width: 800px;
-            margin: 20px auto 0 auto;
+        .about-text {
+            max-width: 700px;
+            margin: 20px auto;
             font-size: 1.1rem;
-            line-height: 1.6;
+            line-height: 1.8;
             opacity: 0.9;
         }
 
-        /* ปุ่มสนับสนุน (Support Button) */
-        .support-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background-color: var(--accent-gold);
-            color: var(--primary-green);
+        /* Support & Contact Section */
+        .header-actions {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .btn-header {
+            text-decoration: none;
             padding: 12px 25px;
             border-radius: 50px;
+            font-weight: bold;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-support {
+            background-color: var(--accent-gold);
+            color: var(--dark-green);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn-contact {
+            background-color: rgba(255,255,255,0.1);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .btn-header:hover { transform: translateY(-3px); opacity: 0.9; }
+
+        /* Submit Feature Banner */
+        .submit-banner {
+            background: white;
+            max-width: 850px;
+            margin: -40px auto 40px auto;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            z-index: 10;
+        }
+
+        .submit-text h2 { margin: 0; color: var(--primary-green); font-size: 1.4rem; }
+        .submit-text p { margin: 5px 0 0 0; color: #666; font-size: 0.95rem; }
+
+        .btn-submit {
+            background: var(--primary-green);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 12px;
             text-decoration: none;
             font-weight: bold;
-            margin-top: 25px;
-            transition: 0.3s;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        .support-btn:hover {
-            transform: translateY(-3px);
-            background-color: #e5c158;
-            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
-        }
-
-        .container {
-            max-width: 850px;
-            margin: -35px auto 50px auto;
-            padding: 0 20px;
-        }
-
+        /* Khutbah List */
+        .container { max-width: 850px; margin: 0 auto 50px auto; padding: 0 20px; }
+        
         .search-box {
             background: white;
-            padding: 10px;
+            padding: 5px;
             border-radius: 50px;
             display: flex;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            border: 1px solid #eee;
         }
 
         .search-box input {
@@ -91,81 +132,55 @@
             width: 100%;
             border-radius: 50px;
             outline: none;
-            font-size: 1.1rem;
         }
 
-        /* รายการคุฏบะฮ์ */
-        .khutbah-item {
+        .khutbah-card {
             background: white;
-            margin-top: 20px;
+            margin-bottom: 20px;
             padding: 25px;
             border-radius: 15px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
             transition: 0.3s;
             border-left: 5px solid var(--primary-green);
         }
 
-        .khutbah-item:hover {
-            transform: scale(1.02);
-            border-left: 5px solid var(--accent-gold);
+        .khutbah-card:hover { transform: scale(1.02); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+
+        .khutbah-info h3 { margin: 0 0 8px 0; color: var(--primary-green); }
+        .author-tag { color: #d4af37; font-weight: bold; font-size: 0.9rem; margin-bottom: 5px; display: block; }
+        .date-tag { font-size: 0.85rem; color: #999; }
+
+        .actions { display: flex; gap: 10px; }
+        .btn-act {
+            text-decoration: none; padding: 10px 15px; border-radius: 8px; font-weight: bold; font-size: 0.85rem;
+            display: flex; align-items: center; gap: 5px; transition: 0.3s;
         }
+        .view { background: #f0fdf4; color: var(--primary-green); }
+        .download { background: var(--primary-green); color: white; }
 
-        .khutbah-info h3 {
-            margin: 0 0 5px 0;
-            color: var(--primary-green);
-            font-size: 1.3rem;
-        }
-
-        .author-name {
-            display: block;
-            color: #2d6a4f;
-            font-weight: bold;
-            margin-bottom: 8px;
-            font-size: 0.95rem;
-        }
-
-        .meta-info {
-            font-size: 0.85rem;
-            color: #7f8c8d;
-            display: flex;
-            gap: 15px;
-        }
-
-        /* ปุ่ม Action */
-        .actions {
-            display: flex;
-            gap: 10px;
-        }
-
-        .btn {
-            text-decoration: none;
-            padding: 10px 18px;
-            border-radius: 8px;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.9rem;
-            transition: 0.3s;
-        }
-
-        .btn-view { background: #f1f2f6; color: var(--primary-green); }
-        .btn-download { background: var(--primary-green); color: white; }
-        .btn-download:hover { background: #2d6a4f; }
-
+        /* Footer & Contact info */
         footer {
+            background: #eee;
+            padding: 40px 20px;
             text-align: center;
-            padding: 50px;
-            color: #95a5a6;
-            font-size: 0.9rem;
+            color: #666;
         }
+
+        .contact-links {
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .contact-links a { color: var(--primary-green); text-decoration: none; font-size: 1.2rem; transition: 0.3s; }
+        .contact-links a:hover { color: var(--accent-gold); }
 
         @media (max-width: 600px) {
-            .khutbah-item { flex-direction: column; text-align: center; }
-            .actions { margin-top: 15px; width: 100%; justify-content: center; }
+            .submit-banner { flex-direction: column; text-align: center; gap: 20px; }
+            .khutbah-card { flex-direction: column; text-align: center; gap: 20px; }
             header h1 { font-size: 2.5rem; }
         }
     </style>
@@ -174,68 +189,74 @@
 
     <header>
         <h1>Khutbah untuk Ummah</h1>
-        <div class="about-site">
-            <p>เว็บไซต์นี้เป็นศูนย์รวมคุฏบะฮ์วันศุกร์และในโอกาสสำคัญต่าง ๆ โดยรวบรวมเนื้อหาที่มีประโยชน์เพื่อเป็นวิทยาทานแก่ประชาชาติอิสลาม <br>
-            <strong>เรารักษาความเป็นต้นฉบับและให้เครดิตแก่เจ้าของเนื้อหาทุกท่านเพื่อความบะรอกัต</strong></p>
+        <div class="about-text">
+            เว็บไซต์นี้ถูกสร้างขึ้นเพื่อรวบรวมไฟล์คุฏบะฮ์ที่มีค่าจากแหล่งต่าง ๆ ทั่วประชาชาติ 
+            เพื่อเป็นคลังปัญญาให้แก่ผู้ศรัทธา โดยเรายังคงยึดมั่นในการให้เกียรติเครดิตต้นฉบับทุกประการ
         </div>
         
-        <!-- ปุ่มสนับสนุน (ใส่ลิงก์ของคุณที่ href) -->
-        <a href="https://link-to-your-support-page" class="support-btn">
-            <i class="fas fa-heart"></i> สนับสนุนการเผยแผ่
-        </a>
+        <div class="header-actions">
+            <!-- ปุ่มสนับสนุน -->
+            <a href="https://link-to-your-promptpay-or-donation" class="btn-header btn-support">
+                <i class="fas fa-coffee"></i> สนับสนุนเราเพื่อพัฒนาเว็บต่อไป
+            </a>
+            <a href="#contact" class="btn-header btn-contact">
+                <i class="fas fa-envelope"></i> ติดต่อเรา
+            </a>
+        </div>
     </header>
 
     <div class="container">
-        <div class="search-box">
-            <input type="text" id="myInput" onkeyup="searchFunction()" placeholder="ค้นหาชื่อคุฏบะฮ์หรือผู้ออกคุฏบะฮ์...">
+        <!-- Feature: ส่งไฟล์คุฏบะฮ์ -->
+        <div class="submit-banner">
+            <div class="submit-text">
+                <h2>ร่วมเป็นส่วนหนึ่งของการเผยแพร่</h2>
+                <p>หากคุณมีไฟล์คุฏบะฮ์ที่ต้องการแบ่งปัน สามารถส่งให้เราเพื่อเผยแพร่ได้ที่นี่</p>
+            </div>
+            <a href="https://forms.gle/your-google-form-link" target="_blank" class="btn-submit">
+                <i class="fas fa-paper-plane"></i> ส่งคุฏบะฮ์ให้เรา
+            </a>
         </div>
 
-        <div id="khutbahList">
-            
-            <!-- ตัวอย่างรายการที่ 1 -->
-            <div class="khutbah-item">
+        <!-- ช่องค้นหา -->
+        <div class="search-box">
+            <input type="text" id="searchInput" onkeyup="search()" placeholder="ค้นหาหัวข้อ, ชื่อผู้บรรยาย หรือวันที่...">
+        </div>
+
+        <div id="list">
+            <!-- รายการไฟล์ที่ 1 -->
+            <div class="khutbah-card">
                 <div class="khutbah-info">
+                    <span class="author-tag"><i class="fas fa-pen-nib"></i> เครดิตผู้ออกคุฏบะฮ์: [ระบุชื่อที่นี่]</span>
                     <h3 style="direction: rtl; font-family: 'Amiri', serif;">خطبة هاري راي عيد الفطر 1447</h3>
-                    <span class="author-name"><i class="fas fa-user-edit"></i> โดย: [ระบุชื่อเจ้าของคุฏบะฮ์ที่นี่]</span>
-                    <div class="meta-info">
-                        <span><i class="far fa-calendar-alt"></i> 1447 AH</span>
-                        <span><i class="fas fa-file-pdf"></i> PDF</span>
-                    </div>
+                    <div class="date-tag"><i class="far fa-calendar-alt"></i> วันอีดิลฟิฏริ 1447</div>
                 </div>
                 <div class="actions">
-                    <a href="file/khutbah-eid-1447.pdf" target="_blank" class="btn btn-view">
-                        <i class="far fa-eye"></i> ดูออนไลน์
-                    </a>
-                    <a href="file/khutbah-eid-1447.pdf" download class="btn btn-download">
-                        <i class="fas fa-download"></i> ดาวน์โหลด
-                    </a>
+                    <a href="file/khutbah-eid-1447.pdf" target="_blank" class="btn-act view"><i class="far fa-eye"></i> ดู</a>
+                    <a href="file/khutbah-eid-1447.pdf" download class="btn-act download"><i class="fas fa-download"></i> โหลด</a>
                 </div>
             </div>
 
-            <!-- เพิ่มรายการใหม่ตรงนี้ -->
-
+            <!-- รายการต่อๆ ไปเพิ่มตรงนี้ -->
         </div>
     </div>
 
-    <footer>
-        <p>&copy; 2024 Khutbah untuk Ummah <br> 
-        ขอขอบคุณทุกแหล่งที่มาของคุฏบะฮ์ที่ร่วมกันสร้างประโยชน์แก่สังคม</p>
+    <footer id="contact">
+        <p><strong>ช่องทางการติดต่อผู้พัฒนา</strong></p>
+        <div class="contact-links">
+            <a href="mailto:your-email@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+            <a href="https://line.me/ti/p/your-id" title="Line"><i class="fab fa-line"></i></a>
+            <a href="https://facebook.com/your-page" title="Facebook Page"><i class="fab fa-facebook"></i></a>
+        </div>
+        <p>&copy; 2024 Khutbah untuk Ummah. สร้างสรรค์เพื่อความบะรอกัตในสังคม</p>
     </footer>
 
     <script>
-        function searchFunction() {
-            var input, filter, list, items, i, txtValue;
-            input = document.getElementById("myInput");
-            filter = input.value.toUpperCase();
-            list = document.getElementById("khutbahList");
-            items = list.getElementsByClassName("khutbah-item");
-            for (i = 0; i < items.length; i++) {
-                txtValue = items[i].textContent || items[i].innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    items[i].style.display = "";
-                } else {
-                    items[i].style.display = "none";
-                }
+        function search() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let cards = document.getElementsByClassName('khutbah-card');
+            for (let i = 0; i < cards.length; i++) {
+                let text = cards[i].innerText.toLowerCase();
+                cards[i].style.display = text.includes(input) ? "" : "none";
             }
         }
     </script>
