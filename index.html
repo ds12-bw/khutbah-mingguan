@@ -270,13 +270,14 @@
                     </div>
                 </div>
                 <div class="btn-group">
-                    <a href="file/khutbah-eid-1447.pdf" target="_blank" class="btn-act btn-view">
-                        <i class="far fa-eye"></i> ดูออนไลน์
-                    </a>
-                    <a href="file/khutbah-eid-1447.pdf" download class="btn-act btn-download">
-                        <i class="fas fa-download"></i> ดาวน์โหลด
-                    </a>
-                </div>
+    <a href="file/khutbah-eid-1447.pdf" target="_blank" class="btn-act btn-view">
+        <i class="far fa-eye"></i> อ่านออนไลน์
+    </a>
+    <!-- เพิ่ม onclick เพื่อแจ้งเตือนวิธีโหลดบนมือถือ -->
+    <a href="file/khutbah-eid-1447.pdf" download="khutbah-1447.pdf" class="btn-act btn-download" onclick="mobileDownloadTip()">
+        <i class="fas fa-download"></i> ดาวน์โหลด
+    </a>
+</div>
             </div>
 
             <!-- เพิ่มรายการใหม่ๆ ต่อจากนี้ -->
