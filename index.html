@@ -3,203 +3,289 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PUKIS - Khutbah untuk Ummah</title>
+    <title>PUKIS - Pusat Pengembangan Kebudayaan Islam</title>
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --pukis-emerald: #064e3b;
-            --pukis-gold: #b45309;
-            --pukis-gold-light: #fbbf24;
-            --bg-site: #f4f6f5;
+            --pukis-primary: #064e3b;      /* Royal Emerald */
+            --pukis-secondary: #9a3412;    /* Imperial Gold Deep */
+            --pukis-gold: #b45309;         /* Standard Gold */
+            --pukis-gold-soft: #fbbf24;    /* Light Gold */
+            --bg-neutral: #fcfcfc;
+            --text-dark: #0f172a;
         }
 
         body {
             font-family: 'Montserrat', sans-serif;
-            background-color: var(--bg-site);
+            background-color: var(--bg-neutral);
+            /* Islamic Pattern Background */
             background-image: url('https://www.transparenttextures.com/patterns/islamic-art.png');
             margin: 0; padding: 0;
-            color: #1e293b;
+            color: var(--text-dark);
         }
 
-        /* Header ใหม่ - กระชับและรวมทุกอย่างไว้ด้วยกัน */
-        header {
-            background: linear-gradient(135deg, #022c22 0%, #064e3b 100%);
-            color: white;
-            padding: 30px 20px 70px 20px; /* ลดความสูงลง */
-            text-align: center;
-            position: relative;
-            border-bottom: 4px solid var(--pukis-gold);
-        }
-
-        /* ย้ายโลโก้มาไว้ตรงนี้เพื่อให้ดูเด่นและพรีเมียม */
-        .header-logo {
+        /* Top Navigation - Official Look */
+        nav {
+            background: white;
+            padding: 12px 5%;
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
-        }
-        .header-logo img {
-            height: 60px;
-            margin-bottom: 10px;
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
-        }
-        .org-name-ar {
-            font-family: 'Amiri', serif;
-            font-size: 1.1rem;
-            color: var(--pukis-gold-light);
-            direction: rtl;
+            border-bottom: 1px solid #e2e8f0;
+            position: sticky; top: 0; z-index: 1000;
         }
 
-        /* ปรับแต่งภาษาอาหรับหลัก */
-        .main-title-ar {
-            font-family: 'Amiri', serif;
-            font-size: 2.5rem;
-            margin: 10px 0;
-            line-height: 1;
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+            color: var(--pukis-primary);
         }
-        header h1 {
-            font-size: 1.6rem;
-            margin: 0;
-            font-weight: 700;
-            opacity: 0.9;
+
+        .nav-logo img { height: 45px; width: auto; }
+
+        .nav-title h2 { margin: 0; font-size: 1.1rem; font-weight: 800; }
+        .nav-title span { font-size: 0.6rem; color: #64748b; font-weight: 700; text-transform: uppercase; }
+
+        /* Corporate Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #022c22 0%, var(--pukis-primary) 100%);
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+            border-bottom: 5px solid var(--pukis-gold);
+        }
+
+        .org-ar {
+            font-family: 'Amiri', serif;
+            font-size: 1.2rem;
+            color: var(--pukis-gold-soft);
+            margin-bottom: 15px;
             letter-spacing: 1px;
         }
 
-        /* ปุ่มสนับสนุนแบบลอย (Floating) - สวยและเข้าถึงง่ายกว่า */
-        .btn-sokongan {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            background: var(--pukis-gold);
-            color: white;
-            padding: 12px 20px;
-            border-radius: 50px;
-            text-decoration: none;
+        .main-ar {
+            font-family: 'Amiri', serif;
+            font-size: 2.8rem;
+            margin: 10px 0;
+            line-height: 1.2;
+        }
+
+        .hero h1 {
+            font-size: 1.8rem;
+            margin: 5px 0 0 0;
             font-weight: 700;
-            font-size: 0.85rem;
-            box-shadow: 0 10px 20px rgba(180, 83, 9, 0.3);
-            z-index: 999;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: 0.3s;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
-        .btn-sokongan:hover { transform: scale(1.1); background: #92400e; }
 
-        /* Container & Search */
-        .container { max-width: 900px; margin: 0 auto; padding: 0 15px; }
+        /* Search Section - แยกออกมาด้านล่างชัดเจน */
+        .search-section {
+            background: #ffffff;
+            padding: 40px 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
 
-        .search-area {
+        .search-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            padding: 0 20px;
+        }
+
+        .search-box {
             background: white;
+            border: 2px solid #e2e8f0;
             border-radius: 12px;
-            padding: 2px 20px;
             display: flex;
             align-items: center;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            margin-top: -28px;
-            margin-bottom: 40px;
-            border: 1px solid rgba(0,0,0,0.05);
+            padding: 5px 20px;
+            transition: 0.3s;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
         }
-        .search-area input {
+
+        .search-box:focus-within {
+            border-color: var(--pukis-primary);
+            box-shadow: 0 10px 15px -3px rgba(6, 78, 59, 0.1);
+        }
+
+        .search-box i { color: #94a3b8; font-size: 1.2rem; }
+        .search-box input {
             border: none; width: 100%; padding: 15px; font-size: 1rem; outline: none; font-family: 'Montserrat';
         }
 
-        /* Khutbah Card - จัดตำแหน่งให้เป๊ะ */
-        .card {
+        /* Content Area */
+        .main-content { max-width: 950px; margin: 40px auto; padding: 0 20px; }
+
+        .section-title {
+            font-size: 0.8rem;
+            font-weight: 800;
+            color: var(--pukis-gold);
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .section-title::after { content: ""; flex: 1; height: 1px; background: #e2e8f0; }
+
+        /* Khutbah Card - Highly Aligned */
+        .khutbah-card {
             background: white;
             border-radius: 12px;
-            padding: 20px 25px;
-            margin-bottom: 12px;
+            padding: 25px 35px;
+            margin-bottom: 15px;
             display: grid;
-            grid-template-columns: 70px 1fr 200px;
+            grid-template-columns: 120px 1fr 240px; /* Aligned Grid */
             align-items: center;
-            border: 1px solid rgba(0,0,0,0.03);
-            transition: 0.2s;
+            border: 1px solid #f1f5f9;
+            transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        .card:hover { transform: translateX(5px); border-left: 5px solid var(--pukis-gold); }
 
-        .badge { font-size: 0.65rem; font-weight: 800; color: var(--pukis-gold); }
-        .card-content h3 { 
-            margin: 0; font-size: 1rem; color: var(--pukis-emerald); 
-            line-height: 1.4; 
+        .khutbah-card:hover {
+            transform: translateX(10px);
+            border-left: 6px solid var(--pukis-gold);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.03);
         }
-        .card-content .ar-sub { 
-            font-family: 'Amiri', serif; font-size: 1.25rem; display: block; 
-            margin-bottom: 2px; color: #444; direction: rtl;
+
+        .category-label {
+            font-size: 0.7rem;
+            font-weight: 800;
+            color: var(--pukis-primary);
+            background: #ecfdf5;
+            padding: 4px 10px;
+            border-radius: 4px;
+            width: fit-content;
         }
-        .card-date { font-size: 0.75rem; color: #94a3b8; margin-top: 4px; }
 
-        /* Actions */
-        .actions { display: flex; gap: 8px; justify-content: flex-end; }
-        .btn-act {
-            text-decoration: none; padding: 8px 15px; border-radius: 8px;
-            font-size: 0.75rem; font-weight: 700; transition: 0.2s;
+        .info-area h3 {
+            margin: 0;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--pukis-primary);
         }
-        .view { background: #f1f5f9; color: #475569; }
-        .down { background: var(--pukis-emerald); color: white; }
-        .down:hover { background: var(--pukis-gold); }
 
-        footer { text-align: center; padding: 50px 20px; color: #94a3b8; font-size: 0.8rem; }
+        .info-area .ar-sub {
+            font-family: 'Amiri', serif;
+            font-size: 1.4rem;
+            color: #475569;
+            margin-bottom: 5px;
+            display: block;
+        }
 
-        @media (max-width: 800px) {
-            .card { grid-template-columns: 1fr; text-align: center; padding: 20px; }
-            .actions { justify-content: center; margin-top: 15px; }
-            .main-title-ar { font-size: 2rem; }
+        .meta-text { font-size: 0.75rem; color: #94a3b8; margin-top: 5px; font-weight: 500; }
+
+        /* Button Support - Elegant Float */
+        .btn-support-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--pukis-gold);
+            color: white;
+            padding: 14px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.8rem;
+            box-shadow: 0 10px 25px rgba(180, 83, 9, 0.3);
+            z-index: 999;
+            transition: 0.3s;
+            display: flex;
+            align-items: center; gap: 10px;
+        }
+        .btn-support-float:hover { transform: translateY(-5px); background: var(--pukis-secondary); }
+
+        /* Action Buttons */
+        .action-group { display: flex; gap: 10px; justify-content: flex-end; }
+        .btn-official {
+            text-decoration: none; padding: 10px 18px; border-radius: 8px;
+            font-size: 0.8rem; font-weight: 700; transition: 0.2s;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .btn-view { background: #f8fafc; color: #64748b; border: 1px solid #e2e8f0; }
+        .btn-download { background: var(--pukis-primary); color: white; }
+        .btn-download:hover { background: var(--pukis-secondary); }
+
+        footer {
+            background: #0f172a; color: white; padding: 60px 20px; text-align: center;
+        }
+
+        @media (max-width: 850px) {
+            .khutbah-card { grid-template-columns: 1fr; text-align: center; padding: 30px; gap: 20px; }
+            .khutbah-card:hover { transform: translateY(-5px); }
+            .category-label { margin: 0 auto; }
+            .action-group { justify-content: center; }
+            .main-ar { font-size: 2.2rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- ปุ่มสนับสนุนย้ายมาเป็นปุ่มลอยที่มุมจอ -->
-    <a href="#" class="btn-sokongan">
-        <i class="fas fa-heart"></i> SOKONGAN
-    </a>
-
-    <header>
-        <div class="header-logo">
+    <!-- Official Navigation -->
+    <nav>
+        <a href="#" class="nav-logo">
             <img src="file/logo-pukis.jpg" alt="Logo PUKIS">
-            <div class="org-name-ar">فوست فغمบาغن كبودايأن إسلام</div>
-        </div>
-        <div class="main-title-ar">خطبة اونตوق اوممة</div>
+            <div class="nav-title">
+                <h2>PUKIS</h2>
+                <span>Pusat Pengembangan Kebudayaan Islam</span>
+            </div>
+        </a>
+        <div style="font-size: 0.7rem; font-weight: 700; color: #94a3b8; letter-spacing: 1px;">E-KHUTBAH RASMI</div>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="hero">
+        <div class="org-ar">فوست فغمباغن دان كبودايأن إسلام</div>
+        <div class="main-ar">خطبة اونتوق اوممة</div>
         <h1>Khutbah untuk Ummah</h1>
     </header>
 
-    <div class="container">
-        
-        <div class="search-area">
-            <i class="fas fa-search" style="color:#cbd5e1;"></i>
-            <input type="text" id="searchInput" placeholder="Cari khutbah...">
+    <!-- Search Section - ย้ายมาด้านล่าง -->
+    <section class="search-section">
+        <div class="search-container">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Cari dalam arkib khutbah (Tajuk, Tarikh, Penulis)...">
+            </div>
         </div>
+    </section>
+
+    <div class="main-content">
+        
+        <div class="section-title">Arkib Khutbah Terkini</div>
 
         <div id="khutbahList">
             
-            <!-- รายการที่ 1 -->
-            <div class="card">
-                <div class="badge">JUMAAT</div>
-                <div class="card-content">
-                    <span class="ar-sub">نصيحت كفด อمة إسلام</span>
-                    <h3>Nasihat kepada Ummat Islam</h3>
-                    <div class="card-date">15 Mac 2024 | 1445 AH</div>
+            <!-- Item Khutbah 1 -->
+            <div class="khutbah-card">
+                <div class="category-label">JUMAAT</div>
+                <div class="info-area">
+                    <span class="ar-sub" dir="rtl">تفسير سورة الفاتحة دان نصيحت</span>
+                    <h3>Tafsir Surah Al-Fatihah & Nasihat</h3>
+                    <div class="meta-text"><i class="far fa-calendar-alt"></i> 15 Mac 2024 | Bahagian Penyelidikan PUKIS</div>
                 </div>
-                <div class="actions">
-                    <a href="file/khutbah-eid-1447.pdf" target="_blank" class="btn-act view">PAPARAN</a>
-                    <a href="file/khutbah-eid-1447.pdf" download class="btn-act down"><i class="fas fa-download"></i> MUAT TURUN</a>
+                <div class="action-group">
+                    <a href="file/khutbah-eid-1447.pdf" target="_blank" class="btn-official btn-view">PAPARAN</a>
+                    <a href="file/khutbah-eid-1447.pdf" download class="btn-official btn-download"><i class="fas fa-download"></i> MUAT TURUN</a>
                 </div>
             </div>
 
-            <!-- รายการที่ 2 -->
-            <div class="card">
-                <div class="badge">EID</div>
-                <div class="card-content">
-                    <span class="ar-sub">خطبة هاري راي عيد الفطر 1447</span>
+            <!-- Item Khutbah 2 -->
+            <div class="khutbah-card">
+                <div class="category-label">EID</div>
+                <div class="info-area">
+                    <span class="ar-sub" dir="rtl">خطبة هاري راي عيد الفطر 1447</span>
                     <h3>Khutbah Hari Raya Aidilfitri 1447</h3>
-                    <div class="card-date">1 Syawal 1447</div>
+                    <div class="meta-text"><i class="far fa-calendar-alt"></i> 1 Syawal 1447 | Pejabat Mufti / PUKIS</div>
                 </div>
-                <div class="actions">
-                    <a href="file/khutbah-eid-1447.pdf" target="_blank" class="btn-act view">PAPARAN</a>
-                    <a href="file/khutbah-eid-1447.pdf" download class="btn-act down"><i class="fas fa-download"></i> MUAT TURUN</a>
+                <div class="action-group">
+                    <a href="file/khutbah-eid-1447.pdf" target="_blank" class="btn-official btn-view">PAPARAN</a>
+                    <a href="file/khutbah-eid-1447.pdf" download class="btn-official btn-download"><i class="fas fa-download"></i> MUAT TURUN</a>
                 </div>
             </div>
 
@@ -207,15 +293,24 @@
 
     </div>
 
+    <!-- Floating Support -->
+    <a href="#" class="btn-support-float">
+        <i class="fas fa-hand-holding-heart"></i> SOKONGAN KAMI
+    </a>
+
     <footer>
-        <p>PUKIS: Pusat Pengembangan Kebudayaan Islam</p>
-        <p>&copy; 2024 All Rights Reserved.</p>
+        <div style="font-family: 'Amiri', serif; font-size: 2rem; color: var(--pukis-gold-soft);">فوست فغمباغن دان كبودايأن إسلام</div>
+        <p style="font-weight: 600; margin-top: 10px;">PUKIS: Pusat Pengembangan Kebudayaan Islam</p>
+        <p style="font-size: 0.75rem; opacity: 0.6; max-width: 600px; margin: 20px auto;">
+            Platform arkib digital khutbah rasมีสำหรับพุทธศาสนิกชนและผู้สนใจ เพื่อการเผยแพร่ความรู้อิสลามในรูปแบบที่ทันสมัยและเข้าถึงง่าย
+        </p>
+        <p style="font-size: 0.7rem; opacity: 0.4; margin-top: 40px;">&copy; 2024 PUKIS. Hak Cipta Terpelihara.</p>
     </footer>
 
     <script>
         document.getElementById('searchInput').addEventListener('input', function(e) {
             const filter = e.target.value.toLowerCase();
-            const cards = document.getElementsByClassName('card');
+            const cards = document.getElementsByClassName('khutbah-card');
             Array.from(cards).forEach(card => {
                 const text = card.textContent.toLowerCase();
                 card.style.display = text.includes(filter) ? "grid" : "none";
