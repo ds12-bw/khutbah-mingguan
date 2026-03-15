@@ -3,36 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PUKIS - Pusat Pengembangan Kebudayaan Islam</title>
-    <!-- Google Fonts: Amiri (Arabic) & Montserrat (Malay/Latin) -->
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Khutbah untuk Ummah - PUKIS</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --emerald: #064e3b;
-            --emerald-light: #059669;
-            --gold: #b45309;
-            --gold-light: #fbbf24;
-            --snow: #f8fafc;
+            --pukis-emerald: #064e3b;
+            --pukis-emerald-dark: #022c22;
+            --pukis-gold: #b45309;
+            --pukis-gold-light: #fbbf24;
+            --bg-cream: #fdfdfb;
         }
 
         body {
             font-family: 'Montserrat', sans-serif;
-            background-color: var(--snow);
+            background-color: var(--bg-cream);
+            /* เพิ่มลวดลายพื้นหลังอิสลาม */
+            background-image: url('https://www.transparenttextures.com/patterns/islamic-art.png');
             margin: 0; padding: 0;
             color: #1e293b;
         }
 
-        /* Top Navigation */
+        /* Navigation */
         nav {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 12px 6%;
+            background: rgba(255, 255, 255, 0.98);
+            padding: 10px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
             position: sticky; top: 0; z-index: 1000;
         }
 
@@ -41,188 +42,170 @@
             align-items: center;
             gap: 15px;
             text-decoration: none;
-            color: var(--emerald);
+            color: var(--pukis-emerald);
         }
 
         .nav-brand img {
-            height: 55px; /* Saiz Logo PUKIS */
+            height: 50px;
             width: auto;
-            border-radius: 4px;
         }
 
-        .brand-name h2 {
-            margin: 0; font-size: 1.4rem; font-weight: 800; letter-spacing: 1px;
-        }
+        .brand-name h2 { margin: 0; font-size: 1.2rem; font-weight: 800; }
+        .brand-name span { font-size: 0.6rem; color: #64748b; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
 
-        .brand-name span {
-            font-size: 0.65rem; color: #64748b; font-weight: 600; text-transform: uppercase;
-        }
-
-        .btn-support {
-            text-decoration: none;
-            font-size: 0.8rem;
-            font-weight: 700;
-            color: var(--gold);
-            border: 2px solid var(--gold);
-            padding: 8px 18px;
-            border-radius: 50px;
-            transition: 0.3s;
-        }
-
-        .btn-support:hover { background: var(--gold); color: white; }
-
-        /* Hero Section */
+        /* Header Hero Section */
         header {
-            background: linear-gradient(135deg, rgba(6, 78, 59, 0.94), rgba(5, 150, 105, 0.94)), 
-                        url('https://www.transparenttextures.com/patterns/islamic-art.png');
-            background-color: var(--emerald);
+            background: linear-gradient(135deg, var(--pukis-emerald-dark) 0%, var(--pukis-emerald) 100%);
             color: white;
-            padding: 70px 6% 120px 6%;
+            padding: 60px 20px 100px 20px;
             text-align: center;
+            position: relative;
+            border-bottom: 5px solid var(--pukis-gold);
         }
 
-        header h1 {
+        .org-arabic {
             font-family: 'Amiri', serif;
-            font-size: 3.5rem;
-            margin: 0;
-            color: var(--gold-light);
-        }
-
-        header p {
-            max-width: 800px;
-            margin: 15px auto 0 auto;
-            font-size: 1.1rem;
-            font-weight: 300;
+            font-size: 1.2rem;
+            color: var(--pukis-gold-light);
+            margin-bottom: 10px;
             opacity: 0.9;
         }
 
-        /* Search Container */
-        .container { max-width: 950px; margin: 0 auto; padding: 0 20px; }
+        .main-arabic {
+            font-family: 'Amiri', serif;
+            font-size: 3rem;
+            margin: 0;
+            color: white;
+        }
 
+        header h1 {
+            font-size: 2rem;
+            margin: 5px 0 0 0;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        /* Container */
+        .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+
+        /* Search Area */
         .search-area {
             background: white;
-            border-radius: 100px;
-            padding: 10px 30px;
+            border-radius: 50px;
+            padding: 5px 25px;
             display: flex;
             align-items: center;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            margin-top: -45px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-top: -30px;
             margin-bottom: 50px;
             border: 1px solid #e2e8f0;
         }
 
-        .search-area i { color: #94a3b8; font-size: 1.2rem; }
         .search-area input {
-            border: none; width: 100%; padding: 15px; font-size: 1.1rem; outline: none; font-family: 'Montserrat';
+            border: none; width: 100%; padding: 15px; font-size: 1rem; outline: none; font-family: 'Montserrat';
         }
 
-        /* Khutbah Card Layout */
+        /* Khutbah Card - แก้ไขให้ตำแหน่งตรงกัน */
         .card {
-            background: white;
-            border-radius: 20px;
-            padding: 30px;
-            margin-bottom: 25px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 20px 30px;
+            margin-bottom: 15px;
             display: grid;
-            grid-template-columns: 1fr auto;
+            grid-template-columns: 80px 1fr 220px; /* ล็อกตำแหน่ง 3 ส่วนให้ตรงกันทุกไฟล์ */
             align-items: center;
-            transition: 0.4s;
-            border: 1px solid #f1f5f9;
+            transition: 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.05);
         }
 
         .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.06);
-            border-left: 6px solid var(--gold);
+            background: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(6, 78, 59, 0.08);
+            border-left: 6px solid var(--pukis-gold);
+        }
+
+        .card-badge {
+            font-size: 0.65rem;
+            font-weight: 800;
+            color: var(--pukis-gold);
+            text-transform: uppercase;
+        }
+
+        .card-content {
+            padding-right: 20px;
         }
 
         .card-content h3 {
-            margin: 10px 0;
+            margin: 0;
+            font-size: 1.1rem; /* ลดขนาดชื่อคุฏบะฮ์ตามที่ต้องการ */
+            color: var(--pukis-emerald);
+            font-weight: 600;
+        }
+
+        .card-content .arabic-title {
             font-family: 'Amiri', serif;
-            font-size: 1.8rem;
-            color: var(--emerald);
-            direction: rtl;
+            font-size: 1.4rem;
+            margin-bottom: 4px;
+            display: block;
+            color: #334155;
         }
 
-        .badge {
-            display: inline-block;
-            padding: 5px 15px;
-            border-radius: 6px;
-            font-size: 0.7rem;
-            font-weight: 800;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
+        .card-meta {
+            font-size: 0.75rem;
+            color: #94a3b8;
+            margin-top: 5px;
         }
-        .badge-jumaat { background: #ecfdf5; color: #065f46; }
-        .badge-eid { background: #fffbeb; color: #92400e; }
 
-        .author { font-size: 0.9rem; color: var(--gold); font-weight: 700; margin-bottom: 5px; }
-        .date { font-size: 0.8rem; color: #94a3b8; }
+        /* Actions - ปุ่มกด */
+        .actions {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+        }
 
-        /* Action Buttons */
-        .actions { display: flex; gap: 12px; }
         .btn-act {
             text-decoration: none;
-            padding: 12px 22px;
-            border-radius: 12px;
-            font-size: 0.85rem;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-size: 0.8rem;
             font-weight: 700;
             display: flex;
             align-items: center;
-            gap: 8px;
-            transition: 0.3s;
-        }
-        .btn-view { background: #f8fafc; color: #475569; border: 1px solid #e2e8f0; }
-        .btn-download { background: var(--emerald); color: white; }
-        .btn-download:hover { background: var(--emerald-light); box-shadow: 0 8px 15px rgba(6, 78, 59, 0.2); }
-
-        /* Submission Section */
-        .submit-section {
-            background: white;
-            border-radius: 30px;
-            padding: 50px;
-            text-align: center;
-            margin: 80px 0;
-            border: 2px dashed #e2e8f0;
+            gap: 6px;
+            transition: 0.2s;
         }
 
-        .submit-section h2 { color: var(--emerald); margin-bottom: 10px; }
-        .btn-submit {
-            display: inline-block;
-            background: var(--gold);
-            color: white;
-            text-decoration: none;
-            padding: 15px 35px;
-            border-radius: 50px;
-            font-weight: 700;
-            margin-top: 25px;
-            transition: 0.3s;
-        }
-        .btn-submit:hover { transform: scale(1.05); background: #92400e; }
+        .btn-view { background: #f1f5f9; color: #475569; }
+        .btn-download { background: var(--pukis-emerald); color: white; }
+        .btn-download:hover { background: var(--pukis-gold); }
 
         /* Footer */
         footer {
-            background: #0f172a;
+            background: var(--pukis-emerald-dark);
             color: white;
-            padding: 80px 6% 40px 6%;
+            padding: 60px 20px;
             text-align: center;
+            margin-top: 80px;
         }
 
-        .footer-brand h2 { font-family: 'Amiri', serif; font-size: 2.5rem; color: var(--gold-light); margin: 0; }
-        .footer-contact { margin: 30px 0; display: flex; justify-content: center; gap: 30px; }
-        .footer-contact a { color: white; font-size: 1.6rem; transition: 0.3s; }
-        .footer-contact a:hover { color: var(--gold-light); }
+        .footer-logo {
+            font-family: 'Amiri', serif;
+            font-size: 2rem;
+            color: var(--pukis-gold-light);
+        }
 
-        @media (max-width: 768px) {
-            .card { grid-template-columns: 1fr; text-align: center; }
-            .card-content h3 { text-align: center; }
-            .actions { margin-top: 20px; justify-content: center; }
-            header h1 { font-size: 2.5rem; }
+        /* Responsive */
+        @media (max-width: 850px) {
+            .card { grid-template-columns: 1fr; text-align: center; gap: 15px; }
+            .card-content { padding-right: 0; }
+            .actions { justify-content: center; }
+            .main-arabic { font-size: 2.2rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigasi -->
     <nav>
         <a href="#" class="nav-brand">
             <img src="file/logo-pukis.jpg" alt="Logo PUKIS">
@@ -231,95 +214,76 @@
                 <span>Pusat Pengembangan Kebudayaan Islam</span>
             </div>
         </a>
-        <div class="nav-links">
-            <a href="#" class="btn-support"><i class="fas fa-heart"></i> Sokongan</a>
-        </div>
+        <a href="#" style="text-decoration:none; font-size:0.8rem; font-weight:700; color:var(--pukis-gold);">
+            <i class="fas fa-heart"></i> SOKONGAN
+        </a>
     </nav>
 
-    <!-- Header / Hero -->
     <header>
-        <h1>Khutbah untuk ummah</h1>
-        <p>Gerbang ilmu dan dokumentasi khutbah mingguan secara rasmi di bawah seliaan <br> <strong>Pusat Pengembangan Kebudayaan Islam (PUKIS)</strong></p>
+        <div class="org-arabic">فوست فغمบาغن كبودايأن إسلام</div>
+        <div class="main-arabic">خطبة اونتوق اوممة</div>
+        <h1>Khutbah untuk Ummah</h1>
     </header>
 
     <div class="container">
         
-        <!-- Bar Carian -->
         <div class="search-area">
-            <i class="fas fa-search"></i>
-            <input type="text" id="searchInput" placeholder="Cari tajuk khutbah, penulis, atau kategori...">
+            <i class="fas fa-search" style="color:#cbd5e1;"></i>
+            <input type="text" id="searchInput" placeholder="Carian tajuk khutbah atau kata kunci...">
         </div>
 
         <div id="khutbahList">
             
-            <!-- Item Khutbah 1 (Contoh) -->
+            <!-- Item Khutbah 1 -->
             <div class="card">
+                <div class="card-badge">JUMAAT</div>
                 <div class="card-content">
-                    <span class="badge badge-jumaat">KHUTBAH JUMAAT</span>
-                    <div class="author"><i class="fas fa-certificate"></i> Oleh: Bahagian Akademik PUKIS</div>
-                    <h3>Melestarikan Budaya Islam di Era Digital</h3>
-                    <div class="date"><i class="far fa-calendar-alt"></i> 15 Mac 2024 | 1445 AH</div>
+                    <span class="arabic-title" dir="rtl">تفسير سورة الفاتحة دان نصيحت</span>
+                    <h3>Tafsir Surah Al-Fatihah & Nasihat</h3>
+                    <div class="card-meta"><i class="far fa-calendar-alt"></i> 15 Mac 2024 | 1445 AH</div>
                 </div>
                 <div class="actions">
-                    <a href="file/khutbah-eid-1447.pdf" target="_blank" class="btn-act btn-view">Paparan</a>
-                    <a href="file/khutbah-eid-1447.pdf" download class="btn-act btn-download"><i class="fas fa-cloud-download-alt"></i> Muat Turun</a>
+                    <a href="file/khutbah-eid-1447.pdf" target="_blank" class="btn-act btn-view">PAPARAN</a>
+                    <a href="file/khutbah-eid-1447.pdf" download class="btn-act btn-download"><i class="fas fa-download"></i> MUAT TURUN</a>
                 </div>
             </div>
 
-            <!-- Item Khutbah 2 (Contoh Arab) -->
+            <!-- Item Khutbah 2 -->
             <div class="card">
+                <div class="card-badge">EID</div>
                 <div class="card-content">
-                    <span class="badge badge-eid">KHUTBAH EIDILFITRI</span>
-                    <div class="author"><i class="fas fa-certificate"></i> Oleh: MAJLIS agama islam wilayah yala</div>
-                    <h3>MADRASAH RAMDHAN MENGAWAL NAFSU</h3>
-                    <div class="date"><i class="far fa-calendar-alt"></i> 1 Syawal 1447</div>
+                    <span class="arabic-title" dir="rtl">خطبة هاري راي عيد الفطر 1447</span>
+                    <h3>Khutbah Hari Raya Aidilfitri 1447</h3>
+                    <div class="card-meta"><i class="far fa-calendar-alt"></i> 1 Syawal 1447</div>
                 </div>
                 <div class="actions">
-                    <a href="file/khutbah-eid-1447.pdf" target="_blank" class="btn-act btn-view">Paparan</a>
-                    <a href="file/khutbah-eid-1447.pdf" download class="btn-act btn-download"><i class="fas fa-cloud-download-alt"></i> Muat Turun</a>
+                    <a href="file/khutbah-eid-1447.pdf" target="_blank" class="btn-act btn-view">PAPARAN</a>
+                    <a href="file/khutbah-eid-1447.pdf" download class="btn-act btn-download"><i class="fas fa-download"></i> MUAT TURUN</a>
                 </div>
             </div>
 
-        </div>
-
-        <!-- Bahagian Hantar Khutbah -->
-        <div class="submit-section">
-            <i class="fas fa-file-export fa-4x" style="color: #e2e8f0; margin-bottom: 20px;"></i>
-            <h2>Sumbangkan Khutbah Anda</h2>
-            <p>Sertai rangkaian dakwah kami dengan menghantar teks khutbah untuk dikongsikan bersama ummah.</p>
-            <a href="#" class="btn-submit"><i class="fas fa-paper-plane"></i> Hantar Sekarang</a>
         </div>
 
     </div>
 
-    <!-- Footer -->
     <footer>
-        <div class="footer-brand">
-            <h2>PUKIS</h2>
-            <p>Pusat Pengembangan Kebudayaan Islam</p>
+        <div class="footer-logo">فوست فغمباغن كبودايأن إسلام</div>
+        <p style="opacity:0.8; margin-top:10px;">PUKIS: Pusat Pengembangan Kebudayaan Islam</p>
+        <div style="margin: 20px 0;">
+            <a href="#" style="color:white; margin:0 15px; font-size:1.5rem;"><i class="fab fa-facebook"></i></a>
+            <a href="#" style="color:white; margin:0 15px; font-size:1.5rem;"><i class="fab fa-whatsapp"></i></a>
+            <a href="#" style="color:white; margin:0 15px; font-size:1.5rem;"><i class="fas fa-envelope"></i></a>
         </div>
-        <div class="footer-contact">
-            <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-            <a href="#" title="Email"><i class="fas fa-envelope"></i></a>
-        </div>
-        <p style="font-size: 0.75rem; opacity: 0.5; letter-spacing: 1px;">&copy; 2024 PUKIS. Hak Cipta Terpelihara. <br> Memacu Kecemerlangan Budaya dan Ilmu Islam.</p>
+        <p style="font-size: 0.7rem; opacity: 0.5;">&copy; 2024 PUKIS. Hak Cipta Terpelihara.</p>
     </footer>
 
     <script>
-        // Sistem Carian Pintar
         document.getElementById('searchInput').addEventListener('input', function(e) {
             const filter = e.target.value.toLowerCase();
             const cards = document.getElementsByClassName('card');
-            
             Array.from(cards).forEach(card => {
                 const text = card.textContent.toLowerCase();
-                if (text.includes(filter)) {
-                    card.style.display = "grid";
-                    card.style.opacity = "1";
-                } else {
-                    card.style.display = "none";
-                }
+                card.style.display = text.includes(filter) ? "grid" : "none";
             });
         });
     </script>
