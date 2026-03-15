@@ -3,290 +3,280 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Khutbah untuk Ummah - คลังคุฏบะฮ์พรีเมียม</title>
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Kanit:wght@200;300;400;500&display=swap" rel="stylesheet">
+    <title>PUKIS - Pusat Pengembangan Kebudayaan Islam</title>
+    <!-- ฟอนต์ที่ดูภูมิฐาน: Amiri (อาหรับ) และ Sarabun (ไทยทางการ) -->
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --emerald-dark: #064e3b;
-            --emerald-mid: #065f46;
-            --gold: #d97706;
-            --gold-light: #fbbf24;
-            --bg-gray: #f3f4f6;
+            --pukis-green: #064e3b; /* เขียวองค์กร */
+            --pukis-gold: #b45309;  /* ทององค์กร */
+            --light-gray: #f8fafc;
+            --white: #ffffff;
         }
 
         body {
-            font-family: 'Kanit', sans-serif;
-            background-color: var(--bg-gray);
+            font-family: 'Sarabun', sans-serif;
+            background-color: var(--light-gray);
             margin: 0; padding: 0;
-            line-height: 1.6;
+            color: #1e293b;
         }
 
-        /* Top Bar */
-        .top-bar {
-            background: white;
-            padding: 10px 20px;
+        /* Navigation Bar */
+        nav {
+            background: var(--white);
+            padding: 15px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             position: sticky; top: 0; z-index: 1000;
         }
 
-        .support-link {
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
             text-decoration: none;
-            color: var(--emerald-dark);
+            color: var(--pukis-green);
+        }
+
+        .nav-brand img {
+            height: 50px; /* ขนาดโลโก้ */
+            width: auto;
+        }
+
+        .brand-text h2 {
+            margin: 0; font-size: 1.2rem; font-weight: 700; line-height: 1;
+        }
+
+        .brand-text span {
+            font-size: 0.7rem; color: #64748b; letter-spacing: 1px;
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn-support-top {
+            text-decoration: none;
             font-size: 0.8rem;
-            font-weight: 500;
-            border: 1px solid #e5e7eb;
-            padding: 5px 12px;
-            border-radius: 6px;
+            font-weight: 600;
+            color: var(--pukis-gold);
+            border: 1px solid var(--pukis-gold);
+            padding: 8px 16px;
+            border-radius: 50px;
             transition: 0.3s;
         }
 
-        .support-link:hover { background: #f9fafb; border-color: var(--gold); }
+        .btn-support-top:hover { background: var(--pukis-gold); color: white; }
 
-        /* Header */
-        header {
-            background: linear-gradient(135deg, var(--emerald-dark) 0%, var(--emerald-mid) 100%);
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(6, 78, 59, 0.9), rgba(6, 78, 59, 0.9)), 
+                        url('https://www.transparenttextures.com/patterns/islamic-art.png');
+            background-color: var(--pukis-green);
             color: white;
-            padding: 60px 20px 100px 20px;
+            padding: 60px 5% 100px 5%;
             text-align: center;
-            position: relative;
         }
 
-        header h1 {
+        .hero h1 {
             font-family: 'Amiri', serif;
             font-size: 3rem;
-            margin: 0;
-            color: var(--gold-light);
+            margin-bottom: 10px;
+            color: #fbbf24;
         }
 
-        .hero-sub { opacity: 0.8; font-weight: 300; font-size: 1rem; margin-top: 10px; }
+        .hero p {
+            max-width: 700px;
+            margin: 0 auto;
+            font-weight: 300;
+            opacity: 0.9;
+        }
 
-        /* Main Content */
-        .container { max-width: 850px; margin: 0 auto; padding: 0 15px; }
+        /* Search Area */
+        .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
 
-        /* Search Box */
-        .search-wrapper {
-            background: white;
+        .search-container {
+            background: var(--white);
             border-radius: 15px;
-            padding: 5px;
+            padding: 8px;
             display: flex;
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
             margin-top: -35px;
-            margin-bottom: 30px;
-            position: relative;
-            z-index: 10;
+            margin-bottom: 40px;
         }
 
-        .search-wrapper input {
-            border: none;
-            width: 100%;
-            padding: 15px 20px;
-            font-size: 1rem;
-            outline: none;
-            font-family: 'Kanit', sans-serif;
+        .search-container input {
+            border: none; width: 100%; padding: 15px; font-size: 1rem; outline: none; font-family: 'Sarabun';
         }
 
         /* Khutbah Card */
         .card {
-            background: white;
-            border-radius: 18px;
-            padding: 20px;
+            background: var(--white);
+            border-radius: 12px;
+            padding: 25px;
             margin-bottom: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            transition: 0.3s;
-            border-left: 6px solid var(--emerald-dark);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
-        }
-
-        .card:hover { transform: translateY(-5px); box-shadow: 0 12px 20px rgba(0,0,0,0.08); }
-
-        /* Badge สำหรับหมวดหมู่ */
-        .category-badge {
-            display: inline-block;
-            padding: 3px 12px;
-            border-radius: 50px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            margin-bottom: 8px;
-        }
-        .cat-jumaat { background: #dcfce7; color: #166534; } /* สีเขียวสำหรับวันศุกร์ */
-        .cat-eid { background: #fef3c7; color: #92400e; }    /* สีทองสำหรับวันอีด */
-
-        .card-header h3 {
-            margin: 0;
-            font-family: 'Amiri', serif;
-            font-size: 1.4rem; /* ปรับขนาดให้พอดีขึ้น */
-            color: var(--emerald-dark);
-            line-height: 1.4;
-            word-wrap: break-word;
-        }
-
-        .author-text {
-            font-size: 0.85rem;
-            color: var(--gold);
-            font-weight: 500;
-            margin-top: 5px;
-        }
-
-        .card-footer {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-top: 1px solid #f3f4f6;
-            padding-top: 15px;
-            margin-top: 5px;
+            transition: 0.3s;
+            border-left: 5px solid var(--pukis-green);
         }
 
-        .date-info { font-size: 0.8rem; color: #9ca3af; }
+        .card:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
 
-        /* Button Group */
-        .btn-group { display: flex; gap: 8px; }
+        .card-info h3 {
+            margin: 0; font-family: 'Amiri', serif; font-size: 1.5rem; color: var(--pukis-green); direction: rtl;
+        }
 
+        .category-tag {
+            display: inline-block; padding: 4px 12px; border-radius: 4px; font-size: 0.7rem; font-weight: 700; margin-bottom: 10px;
+        }
+        .tag-jumaat { background: #dcfce7; color: #166534; }
+        .tag-eid { background: #fef3c7; color: #92400e; }
+
+        .author-info { font-size: 0.85rem; color: var(--pukis-gold); font-weight: 600; margin: 5px 0; }
+
+        .date-text { font-size: 0.8rem; color: #94a3b8; }
+
+        /* Buttons Action */
+        .btn-group { display: flex; gap: 10px; }
         .btn-act {
-            text-decoration: none;
-            padding: 8px 16px;
-            border-radius: 8px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            transition: 0.2s;
+            text-decoration: none; padding: 10px 20px; border-radius: 8px; font-size: 0.85rem; font-weight: 600;
+            display: flex; align-items: center; gap: 8px; transition: 0.3s;
         }
+        .btn-view { background: #f1f5f9; color: #475569; }
+        .btn-download { background: var(--pukis-green); color: white; }
+        .btn-download:hover { background: #059669; }
 
-        .btn-view { background: #f3f4f6; color: #4b5563; }
-        .btn-download { background: var(--emerald-dark); color: white; }
-        .btn-download:hover { background: var(--emerald-mid); }
-
-        /* Submit Section (ด้านล่าง) */
-        .submit-area {
-            text-align: center;
-            padding: 40px 20px;
-            margin-top: 40px;
-            background: white;
-            border-radius: 20px;
+        /* Submission Section */
+        .submit-box {
+            background: white; border-radius: 20px; padding: 40px; text-align: center; margin-top: 60px;
+            border: 1px dashed #cbd5e1;
         }
 
         .btn-submit {
-            display: inline-block;
-            background: var(--gold);
-            color: white;
-            text-decoration: none;
-            padding: 12px 25px;
-            border-radius: 50px;
-            font-weight: bold;
-            margin-top: 15px;
+            display: inline-block; background: var(--pukis-gold); color: white; text-decoration: none;
+            padding: 12px 30px; border-radius: 50px; font-weight: bold; margin-top: 20px;
         }
 
-        footer { text-align: center; padding: 40px; color: #9ca3af; font-size: 0.8rem; }
+        /* Footer */
+        footer {
+            background: #1e293b; color: white; padding: 50px 5%; margin-top: 80px; text-align: center;
+        }
 
-        @media (min-width: 640px) {
-            .card { flex-direction: row; justify-content: space-between; align-items: center; }
-            .card-footer { border-top: none; padding-top: 0; margin-top: 0; flex-direction: column; align-items: flex-end; }
+        .footer-logo h2 { font-family: 'Amiri', serif; color: #fbbf24; margin: 0; }
+        .footer-social { margin: 25px 0; display: flex; justify-content: center; gap: 20px; }
+        .footer-social a { color: white; font-size: 1.5rem; }
+
+        @media (max-width: 768px) {
+            .card { flex-direction: column; text-align: center; }
+            .btn-group { margin-top: 20px; width: 100%; justify-content: center; }
+            .hero h1 { font-size: 2.2rem; }
         }
     </style>
 </head>
 <body>
 
-    <div class="top-bar">
-        <a href="#" class="support-link"><i class="fas fa-heart"></i> สนับสนุนเรา</a>
-        <span style="font-size: 0.7rem; color: #ccc;">KHUTBAH UMMAH 2.1</span>
-    </div>
+    <!-- แถบเมนูด้านบนพร้อมโลโก้ -->
+    <nav>
+        <a href="#" class="nav-brand">
+            <!-- ใส่โลโก้ของคุณที่นี่ (เช่น file/logo.png) -->
+            <img src="https://via.placeholder.com/50x50?text=PUKIS" alt="PUKIS Logo">
+            <div class="brand-text">
+                <h2>PUKIS</h2>
+                <span>PUSAT PENGEMBANGAN KEBUDAYAAN ISLAM</span>
+            </div>
+        </a>
+        <div class="nav-actions">
+            <a href="#" class="btn-support-top"><i class="fas fa-heart"></i> สนับสนุนองค์กร</a>
+        </div>
+    </nav>
 
-    <header>
-        <h1>Khutbah untuk Ummah</h1>
-        <div class="hero-sub">คลังขุฏบะฮ์รายสัปดาห์เพื่อทางนำสู่สังคม</div>
+    <header class="hero">
+        <h1>Khutbah Archive</h1>
+        <p>ศูนย์รวมคุฏบะฮ์รายสัปดาห์และคลังความรู้อิสลามอย่างเป็นทางการ <br> ภายใต้การดูแลของศูนย์พัฒนาวัฒนธรรมอิสลาม (PUKIS)</p>
     </header>
 
     <div class="container">
         
-        <!-- ช่องค้นหาที่แก้ไขแล้ว -->
-        <div class="search-wrapper">
-            <input type="text" id="searchInput" placeholder="พิมพ์เพื่อค้นหาหัวข้อ, ชื่อผู้แต่ง หรือประเภท...">
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="ค้นหาคุฏบะฮ์โดยพิมพ์หัวข้อ, ชื่อผู้เขียน หรือหมวดหมู่...">
         </div>
 
         <div id="khutbahList">
             
-            <!-- รายการคุฏบะฮ์วันศุกร์ (Jumaat) -->
+            <!-- รายการที่ 1 -->
             <div class="card">
-                <div class="card-body">
-                    <span class="category-badge cat-jumaat">Khutbah Jumaat</span>
-                    <div class="card-header">
-                        <h3>การยืนหยัดบนหลักการในโลกที่เปลี่ยนแปลง</h3>
-                        <div class="author-text"><i class="fas fa-user-edit"></i> โดย: มัสยิดกลางประจำจังหวัด</div>
-                    </div>
+                <div class="card-info">
+                    <span class="category-tag tag-jumaat">KHUTBAH JUMAAT</span>
+                    <h3>การรักษาวัฒนธรรมอิสลามในยุคดิจิทัล</h3>
+                    <div class="author-info"><i class="fas fa-certificate"></i> โดย: ฝ่ายวิชาการ PUKIS</div>
+                    <div class="date-text"><i class="far fa-calendar-alt"></i> 15 มีนาคม 2024 | 1445 AH</div>
                 </div>
-                <div class="card-footer">
-                    <div class="btn-group">
-                        <a href="file/test.pdf" target="_blank" class="btn-act btn-view">ดู</a>
-                        <a href="file/test.pdf" download class="btn-act btn-download"><i class="fas fa-download"></i> โหลด</a>
-                    </div>
-                    <div class="date-info" style="margin-top: 10px;">15 มีนาคม 2024</div>
+                <div class="btn-group">
+                    <a href="file/khutbah-eid-1447.pdf" target="_blank" class="btn-act btn-view">อ่านออนไลน์</a>
+                    <a href="file/khutbah-eid-1447.pdf" download class="btn-act btn-download"><i class="fas fa-download"></i> ดาวน์โหลด</a>
                 </div>
             </div>
 
-            <!-- รายการคุฏบะฮ์วันอีด (Eidilfitri) -->
+            <!-- รายการที่ 2 (ตัวอย่างชื่ออาหรับ) -->
             <div class="card">
-                <div class="card-body">
-                    <span class="category-badge cat-eid">Khutbah Eidilfitri</span>
-                    <div class="card-header">
-                        <h3 style="direction: rtl;">خطبة هاري راي عيد الفطر 1447</h3>
-                        <div class="author-text"><i class="fas fa-user-edit"></i> majlis agama islam wilayah yala</div>
-                    </div>
+                <div class="card-info">
+                    <span class="category-tag tag-eid">KHUTBAH EIDILFITRI</span>
+                    <h3>خطبة هاري راي عيد الفطر 1447</h3>
+                    <div class="author-info"><i class="fas fa-certificate"></i> โดย: ศูนย์พัฒนาวัฒนธรรมอิสลาม</div>
+                    <div class="date-text"><i class="far fa-calendar-alt"></i> 1 Shawwal 1447</div>
                 </div>
-                <div class="card-footer">
-                    <div class="btn-group">
-                        <a href="file/khutbah-eid-1447.pdf" target="_blank" class="btn-act btn-view">ดู</a>
-                        <a href="file/khutbah-eid-1447.pdf" download class="btn-act btn-download"><i class="fas fa-download"></i> โหลด</a>
-                    </div>
-                    <div class="date-info" style="margin-top: 10px;">1 Shawwal 1447</div>
+                <div class="btn-group">
+                    <a href="file/khutbah-eid-1447.pdf" target="_blank" class="btn-act btn-view">อ่านออนไลน์</a>
+                    <a href="file/khutbah-eid-1447.pdf" download class="btn-act btn-download"><i class="fas fa-download"></i> ดาวน์โหลด</a>
                 </div>
             </div>
 
         </div>
 
-        <!-- ส่วนส่งคุฏบะฮ์ -->
-        <div class="submit-area">
-            <h3>ร่วมแบ่งปันคุฏบะฮ์</h3>
-            <p style="color: #6b7280; font-size: 0.9rem;">หากท่านมีไฟล์ขุฏบะฮ์ที่ต้องการเผยแพร่ สามารถส่งให้เราได้ที่นี่</p>
-            <a href="#" class="btn-submit"><i class="fas fa-paper-plane"></i> ส่งขุฏบะฮ์ให้เรา</a>
+        <!-- ส่วนส่งไฟล์สำหรับคนในองค์กรหรือเครือข่าย -->
+        <div class="submit-box">
+            <i class="fas fa-upload fa-3x" style="color: #cbd5e1; margin-bottom: 20px;"></i>
+            <h3>ส่งคุฏบะฮ์เพื่อร่วมเผยแพร่</h3>
+            <p>ร่วมส่งต่อความรู้และวัฒนธรรมอิสลามผ่านเครือข่ายของ PUKIS</p>
+            <a href="#" class="btn-submit"><i class="fas fa-paper-plane"></i> ส่งคุฏบะฮ์ให้เรา</a>
         </div>
 
     </div>
 
     <footer>
-        <div style="margin-bottom: 15px;">
-            <a href="#" style="color: #9ca3af; margin: 0 10px;"><i class="fab fa-facebook fa-lg"></i></a>
-            <a href="#" style="color: #9ca3af; margin: 0 10px;"><i class="fab fa-line fa-lg"></i></a>
-            <a href="#" style="color: #9ca3af; margin: 0 10px;"><i class="fas fa-envelope fa-lg"></i></a>
+        <div class="footer-logo">
+            <h2>PUKIS</h2>
+            <p>Pusat Pengembangan Kebudayaan Islam <br> ศูนย์พัฒนาวัฒนธรรมอิสลาม</p>
         </div>
-        <p>&copy; 2024 Khutbah untuk Ummah | เพื่อการเผยแพร่ความรู้</p>
+        <div class="footer-social">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-line"></i></a>
+            <a href="#"><i class="fas fa-envelope"></i></a>
+        </div>
+        <p style="font-size: 0.7rem; opacity: 0.5;">&copy; 2024 PUKIS. All Rights Reserved. <br> จัดทำเพื่อส่งเสริมการเรียนรู้และวัฒนธรรมอิสลาม</p>
     </footer>
 
     <script>
-        // ระบบค้นหาเวอร์ชันปรับปรุง
-        const searchInput = document.getElementById('searchInput');
-        searchInput.addEventListener('input', function() {
-            const filter = searchInput.value.toLowerCase();
+        // ระบบค้นหาอัจฉริยะ
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            const filter = e.target.value.toLowerCase();
             const cards = document.getElementsByClassName('card');
-
-            for (let i = 0; i < cards.length; i++) {
-                // ค้นหาจากข้อความทั้งหมดภายในการ์ดนั้นๆ
-                const content = cards[i].textContent || cards[i].innerText;
-                if (content.toLowerCase().indexOf(filter) > -1) {
-                    cards[i].style.display = "";
-                    cards[i].style.opacity = "1";
+            
+            Array.from(cards).forEach(card => {
+                const text = card.textContent.toLowerCase();
+                if (text.includes(filter)) {
+                    card.style.display = "flex";
                 } else {
-                    cards[i].style.display = "none";
+                    card.style.display = "none";
                 }
-            }
+            });
         });
     </script>
 </body>
